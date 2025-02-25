@@ -1,5 +1,34 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "exclude": ["dist"],
+  
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "strictFunctionTypes": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": true,
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "checkJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/components/*"
+      ],
+      "@components/astro-components/*": [
+        "src/components/astro-components/*"
+      ],
+      "@components/vue-components/*": [
+        "src/components/vue-components/*"
+      ],
+      "@components/react-components/*": [
+        "src/components/react-components/*"
+      ],
+    },
+    "jsxImportSource": "react"
+  }
 }

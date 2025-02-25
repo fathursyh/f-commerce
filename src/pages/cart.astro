@@ -1,0 +1,10 @@
+---
+import CartList from "@/vue-components/cart/CartList.vue";
+import MainLayout from "src/layouts/MainLayout.astro";
+const { email, user_id } = Astro.locals;
+---
+
+<MainLayout>
+  <CartList client:load email={email!} id={user_id!} v-slot="props">
+  </CartList>
+</MainLayout>

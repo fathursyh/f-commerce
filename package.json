@@ -1,18 +1,28 @@
 {
-  "name": "callous-chroma",
+  "name": "f-commerce",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "start": "npm run dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.2.0",
     "@astrojs/vue": "^5.0.7",
+    "@nanostores/vue": "^0.11.0",
+    "@supabase/supabase-js": "^2.49.1",
     "@tailwindcss/vite": "^4.0.8",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "astro": "^5.3.1",
+    "daisyui": "^5.0.0-beta.8",
+    "midtrans-client": "^1.4.2",
     "nanostores": "^0.11.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "tailwindcss": "^4.0.8",
     "vite-plugin-commonjs": "^0.10.4",
     "vue": "^3.5.13"
