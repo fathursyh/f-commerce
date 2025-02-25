@@ -7,6 +7,8 @@ import commonjs from 'vite-plugin-commonjs';
 
 import react from '@astrojs/react';
 
+import vercel from '@astrojs/vercel';
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [vue(), react()],
@@ -16,7 +18,10 @@ export default defineConfig({
   security: {
     checkOrigin: true
   },
+
   vite: {
     plugins: [tailwindcss(), commonjs() ],
   },
+
+  adapter: vercel(),
 });
