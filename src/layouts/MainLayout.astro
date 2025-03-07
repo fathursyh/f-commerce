@@ -5,7 +5,7 @@ import "src/styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -22,10 +22,8 @@ import "src/styles/global.css";
       content={Astro.generator}
     />
     <title>F-Shop</title>
-    <script src="src/scripts/theme.js"></script>
+    <script src="src/scripts/theme.js" is:inline></script>
     <script
-      is:inline
-      type="text/javascript"
       src="https://app.sandbox.midtrans.com/snap/snap.js"
       data-client-key=`${import.meta.env.PUBLIC_MIDTRANS_CLIENT}`
       async
