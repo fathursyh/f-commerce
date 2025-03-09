@@ -9,29 +9,29 @@ Astro.response.headers.set("Cache-Control", "public, max-age=360, must-revalidat
 Astro.response.headers.set(
   "Netlify-CDN-Cache-Control", "public, durable, s-maxage=360, stale-while-revalidate=60480"
 );
+import ProductCard from "@/react-components/composables/ProductCard";
 
 const search = Astro.url.searchParams.get('search');
 const page = Astro.url.searchParams.get('page') ?? "1";
 const {data} = await Astro.callAction(actions.product.getAllProduct, {query: search, page: page});
-const product : ProductType[] = data ? Object.assign(data![0] as ProductType[]) : [];
 ---
 
 <MainLayout>
     <div class="min-h-[82vh] py-10 xl:px-10 2xl:px-20">
         <div class="xl:w-[40%] w-[80%] mx-auto mb-20">
-            <SearchBarProduct client:idle initial={search} suggestion={product.map(object=>object.title)} class:list={['mx-auto']} />
+            <SearchBarProduct client:idle initial={search} suggestion={(data![0] as ProductType[]).map(object=>object.title)} class:list={['mx-auto']} />
         </div>
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 place-items-center gap-y-12">
             {
-                product.length > 0 &&
-                product.map((item) => (
-                    <p>{item}</p>
+                data!.length > 0 &&
+                (data![0] as ProductType[]).map((item) => (
+                    <ProductCard :key={item.id_product} data={item} client:load />
                 ))
             }
             
         </section>
         {
-            product.length < 1 &&
+            data!.length < 1 &&
             <div class="grid place-items-center h-[50vh]">
                 <p class="text-center text-base-content/70">Tidak ada produk</p>   
             </div>
