@@ -2,5 +2,4 @@ if (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark
     document.documentElement.dataset.theme = 'dark'
 } else {
     document.documentElement.dataset.theme = 'light'
-    
 }

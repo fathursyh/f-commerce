@@ -7,9 +7,9 @@ const { auth, user_id } = Astro.locals;
 
 ---
 
-<nav class="navbar bg-base-200 xl:px-36 2xl:px-48" aria-label="navigation">
+<nav class="navbar  xl:px-36 2xl:px-48 z-40 shadow" aria-label="navigation">
 	<div class="flex-1">
-		<a class="btn btn-ghost text-xl font-bold" href="/" >F-Shop</a>
+		<a class="btn btn-ghost text-xl font-bold text-base-content" href="/" >F-Shop</a>
 	</div>
 	<div class="flex-none">
 		<ThemeController client:only="react" />

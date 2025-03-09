@@ -16,7 +16,7 @@
         <p class="text-base-primary mb-6">
             {{ product.description }}
         </p>
-        <p class="text-2xl font-bold text-accent mb-6">{{ localCurency(product?.price) }}</p>
+        <p class="text-2xl font-bold dark:text-accent text-secondary mb-6">{{ localCurency(product?.price) }}</p>
         <div class="flex items-center mb-6">
           <span class="text-gray-600 mr-4">Quantity:</span>
           <input
