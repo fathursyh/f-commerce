@@ -9,6 +9,7 @@ Astro.response.headers.set("Cache-Control", "public, max-age=360, must-revalidat
 Astro.response.headers.set(
   "Netlify-CDN-Cache-Control", "public, durable, s-maxage=360, stale-while-revalidate=60480"
 );
+import ProductCard from "@/react-components/composables/ProductCard";
 
 const search = Astro.url.searchParams.get('search');
 const page = Astro.url.searchParams.get('page') ?? "1";
@@ -24,7 +25,7 @@ const {data} = await Astro.callAction(actions.product.getAllProduct, {query: sea
             {
                 data!.length > 0 &&
                 (data![0] as ProductType[]).map((item) => (
-                    <p>{item}</p>
+                    <ProductCard :key={item.id_product} data={item} client:load />
                 ))
             }
             

@@ -1,11 +1,16 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
 import HomeLanding from "@/astro-components/home-astro/HomeLanding.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import HomeCarousel from "@/react-components/home-react/HomeCarousel";
 import {FeaturedProduct} from '@components/react-components/home-react/FeaturedProducts';
+import { db } from "src/lib/database";
 Astro.response.headers.set("Cache-Control", "public, max-age=360, must-revalidate");
 Astro.response.headers.set(
   "Netlify-CDN-Cache-Control", "public, durable, s-maxage=360, stale-while-revalidate=60480"
 );
+const { data } = await db.supabase
+  .from('products')
+  .select('image').neq('featured', true);
 ---
 
 <meta
@@ -32,7 +37,13 @@ Astro.response.headers.set(
 <title>F-Shop - Home</title>
 
 <MainLayout>
-  <HomeLanding />
+  <!-- <HomeLanding /> -->
+  <section class="h-[60vh] relative overflow-hidden">
+    <div class="bg-black/50 w-full h-full absolute">
+        <HomeLanding />
+    </div>
+    <HomeCarousel data={data!} classList="h-full w-full" client:only="react" />
+  </section>
   <!-- Product Grid -->
   <section class="container w-fit mx-auto px-6 py-12 2xl:min-h-[48vh] xl:min-h-[36vh]">
     <h2 class="text-3xl font-bold text-center mb-8">Featured Products</h2>

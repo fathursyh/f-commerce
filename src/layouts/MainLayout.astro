@@ -24,6 +24,7 @@ import "src/styles/global.css";
     <title>F-Shop</title>
     <script src="src/scripts/theme.js" is:inline></script>
     <script
+      is:inline
       src="https://app.sandbox.midtrans.com/snap/snap.js"
       data-client-key=`${import.meta.env.PUBLIC_MIDTRANS_CLIENT}`
       async
@@ -54,14 +55,3 @@ import "src/styles/global.css";
     scrollbar-gutter: auto !important;
   }
 </style>
-
-<script>
-  function getTheme() {
-    document.documentElement.dataset.theme =
-      localStorage.getItem("theme") || "winter";
-  }
-
-  window.onload = function () {
-    getTheme();
-  };
-</script>

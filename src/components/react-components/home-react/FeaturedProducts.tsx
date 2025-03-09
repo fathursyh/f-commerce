@@ -1,6 +1,7 @@
 import { actions } from "astro:actions";
 import { useEffect, useState } from "react";
 import type { ProductType } from "src/models/productType";
+import ProductCard from "../composables/ProductCard";
 
 export function FeaturedProduct() {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -37,7 +38,7 @@ export function FeaturedProduct() {
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-8 place-items-stretch">
       {
         products.map((item) => (
-         <p>tes</p>
+         <ProductCard key={item.id_product} data={item}  />
       ))}
     </div>
   );
